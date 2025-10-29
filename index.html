@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Domínios dos Sonhos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg-gradient: radial-gradient(circle at top left, #ffe1ff, #c4e5ff 35%, #1f1b3a 85%);
+        --card-bg: rgba(255, 255, 255, 0.15);
+        --card-border: rgba(255, 255, 255, 0.35);
+        --text-color: #ffffff;
+        --accent: #f9a826;
+        --accent-dark: #c67d00;
+        font-size: clamp(14px, 1.2vw, 18px);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Poppins", sans-serif;
+        background: var(--bg-gradient);
+        color: var(--text-color);
+        padding: 2rem;
+      }
+
+      .wrapper {
+        max-width: 1100px;
+        width: min(100%, 60rem);
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: stretch;
+      }
+
+      .hero {
+        backdrop-filter: blur(12px);
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 28px;
+        padding: clamp(2rem, 5vw, 3rem);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 18px 45px rgba(15, 12, 42, 0.4);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto -15% -40% -15%;
+        height: 55%;
+        background: linear-gradient(130deg, rgba(255, 255, 255, 0.2), transparent 60%);
+        transform: rotate(5deg);
+        pointer-events: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.4rem, 5vw, 3.8rem);
+        margin: 0 0 1rem;
+        line-height: 1.1;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      .hero p {
+        margin: 0 0 1.5rem;
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
+        font-weight: 300;
+        opacity: 0.92;
+      }
+
+      .cta-group {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .cta-group a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.95rem 1.8rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        color: #1f1b3a;
+        background: var(--accent);
+        box-shadow: 0 12px 30px rgba(249, 168, 38, 0.35);
+      }
+
+      .cta-group a:hover {
+        transform: translateY(-3px) scale(1.01);
+        box-shadow: 0 14px 36px rgba(249, 168, 38, 0.45);
+      }
+
+      .cta-group a:active {
+        transform: translateY(1px);
+        box-shadow: 0 6px 18px rgba(249, 168, 38, 0.4);
+      }
+
+      .info-card {
+        backdrop-filter: blur(10px);
+        background: rgba(15, 12, 42, 0.55);
+        border-radius: 24px;
+        padding: clamp(1.5rem, 3vw, 2rem);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        box-shadow: 0 12px 32px rgba(12, 10, 34, 0.5);
+      }
+
+      .info-card h2 {
+        margin: 0;
+        font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+        font-weight: 600;
+        letter-spacing: -0.015em;
+      }
+
+      .info-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 0.85rem;
+      }
+
+      .info-card li {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        font-size: 1rem;
+      }
+
+      .info-card li span.icon {
+        height: 2.4rem;
+        width: 2.4rem;
+        border-radius: 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--accent);
+        font-size: 1.3rem;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        background: rgba(255, 255, 255, 0.18);
+        color: rgba(255, 255, 255, 0.88);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .contact {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin-top: auto;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .contact svg {
+        width: 1.4rem;
+        height: 1.4rem;
+        fill: currentColor;
+      }
+
+      @media (max-width: 720px) {
+        body {
+          padding: 1.5rem;
+        }
+
+        .wrapper {
+          gap: 1.5rem;
+        }
+
+        .hero,
+        .info-card {
+          border-radius: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="hero">
+        <span class="badge">Seu próximo negócio começa aqui</span>
+        <h1>Quer este domínio?<br />Ou precisa de um site memorável?</h1>
+        <p>
+          Transforme sua ideia em presença digital de impacto. Domínios premium e
+          sites sob medida para você dominar o online com estilo.
+        </p>
+        <div class="cta-group">
+          <a href="https://www.instagram.com/selfbrain_/" target="_blank" rel="noopener noreferrer">
+            Fale comigo no Instagram
+          </a>
+        </div>
+      </section>
+      <aside class="info-card">
+        <h2>Por que fechar comigo?</h2>
+        <ul>
+          <li>
+            <span class="icon">✨</span>
+            <span>Ideias que viram marcas com cara profissional desde o primeiro clique.</span>
+          </li>
+          <li>
+            <span class="icon">⚡</span>
+            <span>Experiência ágil: domínio certo e site no ar mais rápido do que você imagina.</span>
+          </li>
+          <li>
+            <span class="icon">🤝</span>
+            <span>Atendimento direto comigo, sem enrolação — alinhamos tudo pelo Instagram.</span>
+          </li>
+        </ul>
+        <div class="contact">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M7.75 3C5.68 3 4 4.68 4 6.75v10.5C4 19.32 5.68 21 7.75 21h8.5C18.32 21 20 19.32 20 17.25V6.75C20 4.68 18.32 3 16.25 3h-8.5zm0 1.5h8.5c1.18 0 2.25 1.07 2.25 2.25v10.5c0 1.18-1.07 2.25-2.25 2.25h-8.5C6.57 19.5 5.5 18.43 5.5 17.25V6.75C5.5 5.57 6.57 4.5 7.75 4.5zm4.25 1.75a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm0 1.5a2 2 0 110 4 2 2 0 010-4zm4.5-.25a.75.75 0 100 1.5.75.75 0 000-1.5z"
+            />
+          </svg>
+          @selfbrain_
+        </div>
+      </aside>
+    </div>
+  </body>
+</html>
